@@ -6,10 +6,11 @@ import java.util.List;
 public class Company {
 
     private List<Employee> employees;
-    private HumanResourcesDepartament humanResourcesDepartament = new HumanResourcesDepartament();
+    private HumanResourcesDepartament humanResourcesDepartament;
 
-    public Company(List<Employee> employees) {
+    public Company(List<Employee> employees, HumanResourcesDepartament humanResourcesDepartament) {
         this.employees = new ArrayList<>(employees);
+        this.humanResourcesDepartament = humanResourcesDepartament;
     }
     public double calculateTotalSalaries() {
         double total = 0;

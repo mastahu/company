@@ -6,8 +6,8 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Company company = new Company(asList(new Employee(1000.0, true), new Employee(2000.0, false), new Employee(5000.0, true)));
-        Company company2 = new Company(asList(new Employee(3000.0, true), new Employee(3000.0, true), new Employee(3000.0, true)));
+        Company company = new Company(asList(new Employee(1000.0, true), new Employee(2000.0, false), new Employee(5000.0, true)), new HumanResourcesDepartament());
+        Company company2 = new Company(asList(new Employee(3000.0, true), new Employee(3000.0, true), new Employee(3000.0, true)), new HumanResourcesDepartament());
 
         System.out.println(company);
         System.out.println(company2);
