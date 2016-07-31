@@ -1,10 +1,13 @@
 package it.morfoza.company;
 
+import static java.util.Arrays.asList;
+
 public class Main {
     public static void main(String[] args) {
 
-        Company company = new Company();
-        Company company2 = new Company();
+
+        Company company = new Company(asList(new Employee(1000.0, true), new Employee(2000.0, false), new Employee(5000.0, true)));
+        Company company2 = new Company(asList(new Employee(3000.0, true), new Employee(3000.0, true), new Employee(3000.0, true)));
 
         System.out.println(company);
         System.out.println(company2);
@@ -20,6 +23,6 @@ public class Main {
 
         System.out.println(company);
         System.out.println(company2);
-        
+
     }
 }

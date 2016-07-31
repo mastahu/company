@@ -8,13 +8,14 @@ public class Employee {
     private String position;
     private boolean hardWorking;
 
-    public Employee(double salary) {
+    public Employee(double salary, boolean hardWorking) {
         this.salary = salary;
+        this.hardWorking= hardWorking;
     }
 
     @Override
     public String toString() {
-        return "Employee: " + firstName + " " + lastName + ", salary: " + salary;
+        return "Employee: " + firstName + " " + lastName + ", salary: " + salary +", hardWorking:" + hardWorking;
     }
 
     public void giveRise(int percent) {
@@ -23,5 +24,9 @@ public class Employee {
 
     public double getSalary() {
         return this.salary;
+    }
+
+    public boolean isHardWorking() {
+        return hardWorking;
     }
 }

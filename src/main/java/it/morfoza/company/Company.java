@@ -1,32 +1,33 @@
 package it.morfoza.company;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Company {
 
-    private Employee ceo;
-    private Employee cfo;
-    private Employee cleaner;
+    private List<Employee> employees;
+    private HumanResourcesDepartament humanResourcesDepartament = new HumanResourcesDepartament();
 
-    public Company() {
-        Employee john = new Employee(1000.0);
-        Employee ben = new Employee(2000.0);
-        Employee zdzisław = new Employee(5000.0);
-        ceo = john;
-        cfo = ben;
-        cleaner = zdzisław;
+    public Company(List<Employee> employees) {
+        this.employees = new ArrayList<>(employees);
     }
     public double calculateTotalSalaries() {
-        return ceo.getSalary() + cfo.getSalary() + cleaner.getSalary();
+        double total = 0;
+        for (Employee employee: employees) {
+            total += employee.getSalary();
+        }
+        return total;
     }
 
     public void giveRise(int percent) {
-        ceo.giveRise(percent);
-        cfo.giveRise(percent);
-        cleaner.giveRise(percent);
+        for (Employee employee: humanResourcesDepartament.getEmployeesForRise(employees)) {
+            employee.giveRise(percent);
+        }
     }
 
 
     public String toString() {
-        return "Company: [ceo: " + ceo + ", cfo: " + cfo + ", cleaner: " + cleaner + "]";
+        return "Company: [employees: " + employees +  "]";
     }
-    
+
 }
