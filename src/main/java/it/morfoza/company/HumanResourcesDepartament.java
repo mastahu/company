@@ -1,7 +1,7 @@
 package it.morfoza.company;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface HumanResourcesDepartament {
-    List<Employee> getEmployeesForRise(List<Employee> employees);
+    ArrayList<Employee> getEmployeesForRise(ArrayList<Employee> employees);
 }

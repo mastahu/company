@@ -1,13 +1,22 @@
 package it.morfoza.company;
 
-import static java.util.Arrays.asList;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
 
+        ArrayList<Employee> employeesForCompany1 = new ArrayList<>();
+        employeesForCompany1.add(new Employee(1000.0, true));
+        employeesForCompany1.add(new Employee(2000.0, true));
+        employeesForCompany1.add(new Employee(5000.0, false));
 
-        Company company = new Company(asList(new Employee(1000.0, true), new Employee(2000.0, false), new Employee(5000.0, true)), new StandardHumanResourcesDepartament());
-        Company company2 = new Company(asList(new Employee(3000.0, true), new Employee(3000.0, true), new Employee(3000.0, true)), new StandardHumanResourcesDepartament());
+        ArrayList<Employee> employeesForCompany2 = new ArrayList<>();
+        employeesForCompany2.add(new Employee(3000.0, true));
+        employeesForCompany2.add(new Employee(3000.0, false));
+        employeesForCompany2.add(new Employee(3000.0, true));
+
+        Company company = new Company(employeesForCompany1, new StandardHumanResourcesDepartament());
+        Company company2 = new Company(employeesForCompany2, new StandardHumanResourcesDepartament());
 
         System.out.println(company);
         System.out.println(company2);
