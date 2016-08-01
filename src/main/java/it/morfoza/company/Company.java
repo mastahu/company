@@ -7,10 +7,11 @@ public class Company {
     private ArrayList<Employee> employees;
     private HumanResourcesDepartament humanResourcesDepartament;
 
-    public Company(ArrayList<Employee> employees, HumanResourcesDepartament humanResourcesDepartament) {
+    public Company(ArrayList<Employee> employees) {
         this.employees = employees;
-        this.humanResourcesDepartament = humanResourcesDepartament;
+        this.humanResourcesDepartament = new HumanResourcesDepartament();
     }
+
     public double calculateTotalSalaries() {
         double total = 0;
         for (Employee employee: employees) {
@@ -24,7 +25,6 @@ public class Company {
             employee.giveRise(percent);
         }
     }
-
 
     public String toString() {
         return "Company: [employees: " + employees +  "]";
