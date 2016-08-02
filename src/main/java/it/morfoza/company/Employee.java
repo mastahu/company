@@ -7,10 +7,15 @@ public class Employee {
     private double salary;
     private String position;
     private boolean hardWorking;
+    private Gender gender;
 
-    public Employee(double salary, boolean hardWorking) {
+    public Employee(String firstName, String lastName, double salary, String position, boolean hardWorking, Gender gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.salary = salary;
-        this.hardWorking= hardWorking;
+        this.position = position;
+        this.hardWorking = hardWorking;
+        this.gender = gender;
     }
 
     @Override

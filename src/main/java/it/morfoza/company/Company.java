@@ -1,15 +1,16 @@
 package it.morfoza.company;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Company {
 
     private ArrayList<Employee> employees;
     private HumanResourcesDepartament humanResourcesDepartament;
 
-    public Company(ArrayList<Employee> employees) {
+    public Company(ArrayList<Employee> employees, HumanResourcesDepartament humanResourcesDepartament) {
         this.employees = employees;
-        this.humanResourcesDepartament = new HumanResourcesDepartament();
+        this.humanResourcesDepartament = humanResourcesDepartament;
     }
 
     public double calculateTotalSalaries() {
@@ -21,7 +22,8 @@ public class Company {
     }
 
     public void giveRise(int percent) {
-        for (Employee employee: humanResourcesDepartament.getEmployeesForRise(employees)) {
+        List<Employee> employeesForRise = humanResourcesDepartament.getEmployeesForRise(employees);
+        for (Employee employee: employeesForRise) {
             employee.giveRise(percent);
         }
     }
