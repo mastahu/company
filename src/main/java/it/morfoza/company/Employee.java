@@ -34,4 +34,20 @@ public class Employee {
     public boolean isHardWorking() {
         return hardWorking;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
 }
