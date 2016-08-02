@@ -2,7 +2,7 @@ package it.morfoza.company;
 
 import java.util.List;
 
-import static it.morfoza.company.DemoUtil.checkCondition;
+import static it.morfoza.company.DemoUtil.check;
 import static java.util.Arrays.asList;
 
 public class StandardHumanResourcesDepartmentDemo {
@@ -10,10 +10,10 @@ public class StandardHumanResourcesDepartmentDemo {
         HumanResourcesDepartment hr = new StandardHumanResourcesDepartment();
 
         List<Employee> hardWorkingEmployeesForRise = hr.getEmployeesForRise(asList(createEmployeeWithWorkAttitude(true)));
-        checkCondition(hardWorkingEmployeesForRise.size() == 1);
+        check(hardWorkingEmployeesForRise.size() == 1);
 
         List<Employee> lazyEmployeesForRise = hr.getEmployeesForRise(asList(createEmployeeWithWorkAttitude(false)));
-        checkCondition(lazyEmployeesForRise.size() == 0);
+        check(lazyEmployeesForRise.size() == 0);
     }
 
     private static Employee createEmployeeWithWorkAttitude(boolean hardWorking) {

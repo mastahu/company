@@ -2,7 +2,7 @@ package it.morfoza.company;
 
 public class DemoUtil {
 
-    public static void checkCondition(boolean condition) {
+    public static void check(boolean condition) {
         if (condition) {
             System.out.println("OK");
         } else {
