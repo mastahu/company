@@ -6,9 +6,9 @@ import java.util.List;
 public class Company {
 
     private ArrayList<Employee> employees;
-    private HumanResourcesDepartament humanResourcesDepartament;
+    private HumanResourcesDepartment humanResourcesDepartament;
 
-    public Company(ArrayList<Employee> employees, HumanResourcesDepartament humanResourcesDepartament) {
+    public Company(ArrayList<Employee> employees, HumanResourcesDepartment humanResourcesDepartament) {
         this.employees = employees;
         this.humanResourcesDepartament = humanResourcesDepartament;
     }

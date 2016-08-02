@@ -16,8 +16,8 @@ public class Main {
         employeesForCompany2.add(new Employee("Marek", "Jurek", 1000.0, "Java Developer", true, Gender.MALE ));
         employeesForCompany2.add(new Employee("John", "Smith", 1000.0, "Tester", true, Gender.MALE ));
 
-        Company company = new Company(employeesForCompany1, new HumanResourcesDepartament());
-        Company company2 = new Company(employeesForCompany2, new HumanResourcesDepartament());
+        Company company = new Company(employeesForCompany1, new StandardHumanResourcesDepartment());
+        Company company2 = new Company(employeesForCompany2, new StandardHumanResourcesDepartment());
 
         System.out.println(company);
         System.out.println(company2);
