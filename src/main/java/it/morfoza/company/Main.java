@@ -13,26 +13,40 @@ public class Main {
         ArrayList<Employee> employeesForCompany2 = new ArrayList<>();
         employeesForCompany2.add(new Employee("Basia", "Kwiatkowska", 1000.0, "CEO", true, Gender.FEMALE ));
         employeesForCompany2.add(new Employee("Zosia", "Piątkowska", 1000.0, "CTO", true, Gender.FEMALE));
-        employeesForCompany2.add(new Employee("Marek", "Jurek", 1000.0, "Java Developer", true, Gender.MALE ));
+        employeesForCompany2.add(new Employee("Marek", "Drumpf", 1000.0, "Java Developer", true, Gender.MALE ));
         employeesForCompany2.add(new Employee("John", "Smith", 1000.0, "Tester", true, Gender.MALE ));
 
+        ArrayList<Employee> employeesForCompany3 = new ArrayList<>();
+        employeesForCompany3.add(new Employee("Maria", "Kubiak", 1000.0, "CEO", true, Gender.FEMALE ));
+        employeesForCompany3.add(new Employee("Zenobia", "Xoxoxo", 1000.0, "CTO", true, Gender.FEMALE));
+        employeesForCompany3.add(new Employee("Marek", "Baba", 1000.0, "Java Developer", true, Gender.MALE ));
+        employeesForCompany3.add(new Employee("John", "Trump", 1000.0, "Tester", true, Gender.MALE ));
+
         Company company = new Company(employeesForCompany1, new StandardHumanResourcesDepartment());
-        Company company2 = new Company(employeesForCompany2, new StandardHumanResourcesDepartment());
+        Company company2 = new Company(employeesForCompany2, new KupaHumanResourcesDepartment());
+        Company company3 = new Company(employeesForCompany3, new HipstaHumanResourcesDepartment());
+
 
         System.out.println(company);
         System.out.println(company2);
+        System.out.println(company3);
 
         System.out.println("company1 total:" + company.calculateTotalSalaries());
         System.out.println("company2 total:" + company2.calculateTotalSalaries());
+        System.out.println("company3 total:" + company3.calculateTotalSalaries());
 
         company.giveRise(100);
+        company2.giveRise(100);
+        company3.giveRise(100);
         System.out.println("-------- RISE ---------!!!!");
 
         System.out.println("company1 total:" + company.calculateTotalSalaries());
         System.out.println("company2 total:" + company2.calculateTotalSalaries());
+        System.out.println("company3 total:" + company3.calculateTotalSalaries());
 
         System.out.println(company);
         System.out.println(company2);
+        System.out.println(company3);
 
     }
 }
