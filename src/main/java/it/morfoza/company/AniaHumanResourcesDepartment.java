@@ -8,12 +8,20 @@ import java.util.List;
  */
 public class AniaHumanResourcesDepartment implements HumanResourcesDepartment {
 
-//            AniaHumanResourcesDepartment givenRises= new AniaHumanResourcesDepartment();
+
 
     @Override
-    public List<Employee> getEmployeesForRise(List<Employee> employees) {
+    public List <Employee> getEmployeesForRise(List<Employee> employees) {
+        List <Employee> employeesForRise = new ArrayList<>();
 
-return new ArrayList<>();
+        for (Employee employee: employees) {
+
+            if (employee.getGender() == Gender.FEMALE  && !employee.isHardWorking()) {
+                employeesForRise.add(employee);
+            }
+        }
+        return employeesForRise;
+
+        }
+
     }
-}
-
