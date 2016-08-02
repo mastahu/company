@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
+
         ArrayList<Employee> employeesForCompany1 = new ArrayList<>();
         employeesForCompany1.add(new Employee("Jan", "Kowalski", 3000.0, "CEO", true, Gender.BOTH ));
         employeesForCompany1.add(new Employee("Jan", "Kowalska", 1000.0, "CFO", true, Gender.NEITHER ));
@@ -26,6 +27,7 @@ public class Main {
         System.out.println("company2 total:" + company2.calculateTotalSalaries());
 
         company.giveRise(100);
+        company2.giveRise(100);
         System.out.println("-------- RISE ---------!!!!");
 
         System.out.println("company1 total:" + company.calculateTotalSalaries());
