@@ -15,8 +15,6 @@ public class StandardHumanResourcesDepartmentDemo {
         should_not_give_rise_to_lazy_employee(sut);
 
         should_give_rise_to_hardworking_emoployees_only(sut);
-
-
     }
 
     private static void should_give_rise_to_hardworking_emoployees_only(HumanResourcesDepartment sut) {
