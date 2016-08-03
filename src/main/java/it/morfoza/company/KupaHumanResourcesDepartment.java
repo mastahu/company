@@ -12,8 +12,6 @@ public class KupaHumanResourcesDepartment implements HumanResourcesDepartment {
         for (Employee employee: employees) {
             if (employee.getLastName().equals("Drumpf")){
                 employeesForRise.add(employee);
-                employeesForRise.add(employee);
-                employeesForRise.add(employee);
             }
         }
         return employeesForRise;

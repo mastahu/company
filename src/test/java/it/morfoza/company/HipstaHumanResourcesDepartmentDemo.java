@@ -1,6 +1,5 @@
 package it.morfoza.company;
 
-import java.lang.reflect.MalformedParametersException;
 import java.util.List;
 
 import static it.morfoza.company.DemoUtil.check;
@@ -11,15 +10,44 @@ import static java.util.Arrays.asList;
  */
 public class HipstaHumanResourcesDepartmentDemo {
     public static void main(String[] args) {
-        HumanResourcesDepartment hipstaHumanResourcesDepartment = new HipstaHumanResourcesDepartment();
+        HumanResourcesDepartment sut = new HipstaHumanResourcesDepartment();
 
-        List<Employee> maleEmployeesForRise = hipstaHumanResourcesDepartment.getEmployeesForRise(asList(maleEmployee()));
-        check(maleEmployeesForRise.size() == 1);
+        shouldGetArise(sut);
 
-        List<Employee> nonMaleEmployeesForRise1 = hipstaHumanResourcesDepartment.getEmployeesForRise(asList(nonMaleEmployee1(),nonMaleEmployee2(),nonMaleEmployee3()));
-        check(nonMaleEmployeesForRise1.size() == 0);
+        shouldNotGetArise(sut);
+
+        OnlyMalesShouldGetArise(sut);
+
 
     }
+
+    private static void OnlyMalesShouldGetArise(HumanResourcesDepartment sut) {
+//Given
+        List<Employee> candidatesForRise = asList(maleEmployee(),nonMaleEmployee1(),nonMaleEmployee2(),nonMaleEmployee3());
+//When
+        List<Employee> approvedForRise = sut.getEmployeesForRise(candidatesForRise);
+//Then
+        check(approvedForRise.size() == 1);
+    }
+
+    private static void shouldNotGetArise(HumanResourcesDepartment sut) {
+//Given
+        List<Employee> candidatesForRise = asList(nonMaleEmployee1(),nonMaleEmployee2(),nonMaleEmployee3());
+//When
+        List<Employee> approvedForRise = sut.getEmployeesForRise(candidatesForRise);
+//Then
+        check(approvedForRise.size() == 0);
+    }
+
+    private static void shouldGetArise(HumanResourcesDepartment sut) {
+//Given
+        List<Employee> candidatesForRise = asList(maleEmployee());
+//When
+        List<Employee> approvedForRise = sut.getEmployeesForRise(candidatesForRise);
+//Then
+        check(approvedForRise.size() == 1);
+    }
+
     private static Employee maleEmployee() {return createEmployeeWithGenderFieldSetTo(Gender.MALE);
     }
     private static Employee nonMaleEmployee1() {return createEmployeeWithGenderFieldSetTo(Gender.FEMALE);
