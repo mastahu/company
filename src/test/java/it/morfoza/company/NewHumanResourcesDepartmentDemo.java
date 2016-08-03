@@ -10,9 +10,9 @@ public class NewHumanResourcesDepartmentDemo {
 
     public static void main(String[] args) {
 
-        HumanResourcesDepartment humanResourcesDeprartment = new NewHumanResourcesDeprartment();
+        HumanResourcesDepartment humanResourcesDeprartment = new NewHumanResourcesDepartment();
         //do zmiennej o typie HumanResourcesDepartment i
-        // nazwie humanResourcesDeprartment przypisujemy nowo utworzony obiekt typu new NewHumanResourcesDeprartment
+        // nazwie humanResourcesDeprartment przypisujemy nowo utworzony obiekt typu new NewHumanResourcesDepartment
 
 
         // given
