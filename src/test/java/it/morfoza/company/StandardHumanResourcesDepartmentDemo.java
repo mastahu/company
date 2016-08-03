@@ -9,14 +9,22 @@ public class StandardHumanResourcesDepartmentDemo {
     public static void main(String[] args) {
         HumanResourcesDepartment hr = new StandardHumanResourcesDepartment();
 
-        List<Employee> hardWorkingEmployeesForRise = hr.getEmployeesForRise(asList(createEmployeeWithWorkAttitude(true)));
+        List<Employee> hardWorkingEmployeesForRise = hr.getEmployeesForRise(asList(hardWorkingEmployee()));
         check(hardWorkingEmployeesForRise.size() == 1);
 
-        List<Employee> lazyEmployeesForRise = hr.getEmployeesForRise(asList(createEmployeeWithWorkAttitude(false)));
+        List<Employee> lazyEmployeesForRise = hr.getEmployeesForRise(asList(lazyEmployee()));
         check(lazyEmployeesForRise.size() == 0);
     }
 
-    private static Employee createEmployeeWithWorkAttitude(boolean hardWorking) {
+    private static Employee hardWorkingEmployee() {
+        return createEmployeeWithHardWorkingFieldSetTo(true);
+    }
+
+    private static Employee lazyEmployee() {
+        return createEmployeeWithHardWorkingFieldSetTo(false);
+    }
+
+    private static Employee createEmployeeWithHardWorkingFieldSetTo(boolean hardWorking) {
         return new Employee("John", "Doe", 1000.0, "", hardWorking,Gender.FEMALE);
     }
 
