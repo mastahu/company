@@ -35,12 +35,11 @@ public class NewHumanResourcesDepartmentDemo {
     }
 
 
-    private static Employee employeeWithGender(Gender gender) {
-        return new Employee("Kasia", "Kowalska", 2000.0, "", false, gender);
+    private static Employee employeeWithGender (Gender gender) {
+        return new Employee ("Kasia", "Kowalska", 2000.0, "", false, gender);
 
     }
-    private static Employee smartEmployeeWithGender(Gender gender) {
-        return new Employee("Maciej", "Kowalski", 3000.0, "", false, gender);
-    }
+
+
 
 }
