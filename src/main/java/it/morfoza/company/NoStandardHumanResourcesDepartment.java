@@ -10,7 +10,7 @@ public class NoStandardHumanResourcesDepartment implements HumanResourcesDepartm
     public List<Employee> getEmployeesForRise(List<Employee> employees) {
         List<Employee> employeesForRise = new ArrayList<>();
         for (Employee employee: employees) {
-            if  (employee.getGender() ==Gender.FEMALE && employee.isHardWorking()){
+            if  (employee.getGender() ==Gender.FEMALE){
                 employeesForRise.add(employee);
             }
         }
