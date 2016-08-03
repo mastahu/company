@@ -1,12 +1,10 @@
 package it.morfoza.company;
 
+import static org.junit.Assert.assertTrue;
+
 public class DemoUtil {
 
     public static void check(boolean condition) {
-        if (condition) {
-            System.out.println("OK");
-        } else {
-            System.out.println("ERROR");
-        }
+        assertTrue(condition);
     }
 }

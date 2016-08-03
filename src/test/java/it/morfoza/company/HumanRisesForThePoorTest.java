@@ -1,5 +1,7 @@
 package it.morfoza.company;
 
+import org.junit.Test;
+
 import java.util.List;
 
 import static it.morfoza.company.DemoUtil.check;
@@ -8,20 +10,12 @@ import static java.util.Arrays.asList;
 /**
  * Created by Wojt on 2016-08-03.
  */
-public class DemoHrRisesForThePoor {
-    public static void main(String[] args) {
-        HumanResourcesDepartment sut = new HumanRisesForThePoor();
+public class HumanRisesForThePoorTest {
 
-        shouldGiveRiseToPoorEmployeesOnly(sut);
+    private HumanResourcesDepartment sut = new HumanRisesForThePoor();
 
-        richShouldNotGetRises(sut);
-
-        poorShouldGetRises(sut);
-
-
-    }
-
-    private static void poorShouldGetRises(HumanResourcesDepartment sut) {
+    @Test
+    public void poorShouldGetRises() {
         // Given
 
         Employee poorEmployee = poorEmployee();
@@ -34,7 +28,8 @@ public class DemoHrRisesForThePoor {
         check(approvedForRise.size() == 1);
     }
 
-    private static void richShouldNotGetRises(HumanResourcesDepartment sut) {
+    @Test
+    public void richShouldNotGetRises() {
         // Given
         Employee richEmployee = richEmployee();
         List<Employee> candidatesForRise = asList(richEmployee);
@@ -46,7 +41,8 @@ public class DemoHrRisesForThePoor {
         check(approvedForRise.size() == 0);
     }
 
-    private static void shouldGiveRiseToPoorEmployeesOnly(HumanResourcesDepartment sut) {
+    @Test
+    public void shouldGiveRiseToPoorEmployeesOnly() {
         // Given
         Employee richEmployee = richEmployee();
         Employee poorEmployee = poorEmployee();
