@@ -13,7 +13,7 @@ import static java.util.Arrays.asList;
 public class WomanDeservBetterHumanResourcesDepartmentDemo {
 
     public static void main(String[] args) {
-        HumanResourcesDepartment hrowcy = null;
+        HumanResourcesDepartment hrowcy = new WomanDeservBetterHumanResourcesDepartment();
 
         whoShouldGetRise(hrowcy);
 

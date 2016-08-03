@@ -9,7 +9,7 @@ import static java.util.Arrays.asList;
 public class HR2Demo {
 
         public static void main(String[] args) {
-            HumanResourcesDepartment hr = new HR2();
+            HumanResourcesDepartment hr = null;
 
             shouldGiveRiseToRiseLessThan2000EmployeesOnly(hr);
         }
