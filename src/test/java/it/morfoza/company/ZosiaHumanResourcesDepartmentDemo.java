@@ -18,7 +18,7 @@ public class ZosiaHumanResourcesDepartmentDemo {
         List<Employee> zosiaEmployeesForRise = hr.getEmployeesForRise(asList(zosiaEmployee()));
         check(zosiaEmployeesForRise.size() == 1);
 
-        List<Employee> nieZosiaEmployeesForRise = hr.getEmployeesForRise(asList(zosiaEmployee()));
+        List<Employee> nieZosiaEmployeesForRise = hr.getEmployeesForRise(asList(nieZosiaEmployee()));
         check(nieZosiaEmployeesForRise.size() == 0);
     }
 
