@@ -9,7 +9,7 @@ public class NewHumanResourcesDeprartment implements HumanResourcesDepartment {
         List<Employee> employeesForRise = new ArrayList<>();
         for (Employee employee: employees) {
             if (employee.getGender() == Gender.FEMALE);{
-                System.out.println("yyy");
+
                 employeesForRise.add(employee);
             }
         }
