@@ -15,40 +15,42 @@ public class ZosiaHumanResourcesDepartmentDemo {
 
     public static void main(String[] args) {
 
+
         test1();
         test2();
 
     }
 
-    public static void test1(){
+    private static void test1(){
+        HumanResourcesDepartment hr = new ZosiaHumanResourcesDepartment();
+        zosiaShouldGetRise(hr);
+        nieZosiaShouldNotGetRise(hr);
+    }
+
+    private static void nieZosiaShouldNotGetRise(HumanResourcesDepartment hr) {
+        // Given
+        List<Employee> candidatesForRise = asList(nieZosiaEmployee());
+        // When
+        List<Employee> approvedForRise = hr.getEmployeesForRise(candidatesForRise);
+        // Then
+        check(approvedForRise.size() == 0);
+    }
+
+    private static void zosiaShouldGetRise(HumanResourcesDepartment hr) {
+        // Given
+        List<Employee> candidatesForRise = asList(zosiaEmployee());
+
+        // When
+        List<Employee> approvedForRise = hr.getEmployeesForRise(candidatesForRise);
+
+        // Then
+        check(approvedForRise.size() == 1);
+    }
+
+
+    private static void test2() {
         HumanResourcesDepartment hr = new ZosiaHumanResourcesDepartment();
 
-        List<Employee> candidatesForRise;
-        candidatesForRise = hr.getEmployeesForRise(asList(zosiaEmployee()));
-
-
-        check(candidatesForRise.size() == 1);
-
-        List<Employee> nieZosiaEmployeesForRise = hr.getEmployeesForRise(asList(nieZosiaEmployee()));
-        check(nieZosiaEmployeesForRise.size() == 0);
-    }
-
-    private static Employee zosiaEmployee() {
-        return createEmployeeWithFirstNameFieldSetTo("Zosia");
-    }
-
-    private static Employee nieZosiaEmployee() {
-        return createEmployeeWithFirstNameFieldSetTo("nie Zosia");
-    }
-
-    private static Employee createEmployeeWithFirstNameFieldSetTo(String firstName) {
-        return new Employee(firstName, "Doe", 1000.0, "", true, Gender.FEMALE);
-
-    }
-
-
-    public static void test2() {
-        HumanResourcesDepartment hr = new ZosiaHumanResourcesDepartment();
         Employee zosiaEmployee = zosiaEmployee();
         Employee nieZosiaEmployee = nieZosiaEmployee();
         List<Employee> candidatesForRise = asList(zosiaEmployee, nieZosiaEmployee);
@@ -63,6 +65,17 @@ public class ZosiaHumanResourcesDepartmentDemo {
     }
 
 
+    private static Employee zosiaEmployee() {
+        return createEmployeeWithFirstNameFieldSetTo("Zosia");
+    }
 
+    private static Employee nieZosiaEmployee() {
+        return createEmployeeWithFirstNameFieldSetTo("nie Zosia");
+    }
+
+    private static Employee createEmployeeWithFirstNameFieldSetTo(String firstName) {
+        return new Employee(firstName, "Doe", 1000.0, "", true, Gender.FEMALE);
+
+    }
 
 }
