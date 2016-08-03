@@ -1,8 +1,5 @@
 package it.morfoza.company;
 
-import it.morfoza.company.Employee;
-import it.morfoza.company.HumanResourcesDepartment;
-
 import java.util.List;
 
 import static it.morfoza.company.DemoUtil.check;
@@ -15,7 +12,7 @@ public class TralalaHumanResourcesDepartmentDemo {
 
     public static void main(String[] args) {
 
-        HumanResourcesDepartment humanResourcesDeprartment = null;
+        HumanResourcesDepartment humanResourcesDeprartment = new TralalaHumanResourcesDepartment();
         //do zmiennej o typie HumanResourcesDepartment i
         // nazwie humanResourcesDeprartment przypisujemy nowo utworzony obiekt typu new NewHumanResourcesDepartment
 
