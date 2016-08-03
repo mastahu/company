@@ -9,11 +9,23 @@ public class StandardHumanResourcesDepartmentDemo {
     public static void main(String[] args) {
         HumanResourcesDepartment hr = new StandardHumanResourcesDepartment();
 
-        List<Employee> hardWorkingEmployeesForRise = hr.getEmployeesForRise(asList(hardWorkingEmployee()));
-        check(hardWorkingEmployeesForRise.size() == 1);
+        List<Employee> employeesForRise;
+        employeesForRise = hr.getEmployeesForRise(asList(hardWorkingEmployee()));
+        check(employeesForRise.size() == 1);
 
-        List<Employee> lazyEmployeesForRise = hr.getEmployeesForRise(asList(lazyEmployee()));
-        check(lazyEmployeesForRise.size() == 0);
+        employeesForRise = hr.getEmployeesForRise(asList(lazyEmployee()));
+        check(employeesForRise.size() == 0);
+
+
+
+        Employee hardWorkingEmployee = hardWorkingEmployee();
+        Employee lazyEmployee = lazyEmployee();
+
+        employeesForRise = hr.getEmployeesForRise(asList(hardWorkingEmployee, lazyEmployee));
+        check(employeesForRise.size() == 1);
+        check(employeesForRise.contains(hardWorkingEmployee));
+        check(!employeesForRise.contains(lazyEmployee));
+
     }
 
     private static Employee hardWorkingEmployee() {
