@@ -10,8 +10,10 @@ import static java.util.Arrays.asList;
  */
 public class AniaHumanResourcesDepartmentDemo {
     public static void main(String[] args) {
-//        test1();
+        test1();
         test2();
+
+
     }
 
     private static Employee lazyWoman() {
@@ -56,4 +58,6 @@ public class AniaHumanResourcesDepartmentDemo {
         check(employeesForRise.contains(lazyWoman));
         check(!employeesForRise.contains(notWoman));
     }
-}
+
+
+    }
