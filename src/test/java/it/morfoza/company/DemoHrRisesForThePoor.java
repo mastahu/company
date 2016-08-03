@@ -10,7 +10,7 @@ import static java.util.Arrays.asList;
  */
 public class DemoHrRisesForThePoor {
     public static void main(String[] args) {
-        HumanResourcesDepartment sut = new HrRisesForThePoor();
+        HumanResourcesDepartment sut = new HumanRisesForThePoor();
 
         shouldGiveRiseToPoorEmployeesOnly(sut);
 
