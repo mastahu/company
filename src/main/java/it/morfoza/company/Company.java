@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Company {
 
-    private ArrayList<Employee> employees;
-    private HumanResourcesDepartment humanResourcesDepartament;
+    private List<Employee> employees;
+    private HumanResourcesDepartment humanResourcesDepartament = new StandardHumanResourcesDepartment();
 
-    public Company(ArrayList<Employee> employees, HumanResourcesDepartment humanResourcesDepartament) {
+    public Company(List<Employee> employees, HumanResourcesDepartment humanResourcesDepartament) {
         this.employees = employees;
         this.humanResourcesDepartament = humanResourcesDepartament;
     }
