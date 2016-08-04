@@ -11,13 +11,15 @@ import java.util.ArrayList;
 public class AniaCompanyTest {
     @Test
     public void testCalculateTotalSalaries (){
+//Given
         ArrayList<Employee> employees=new ArrayList<>();
         Employee lazyEmployee=new Employee("Józek", "Kiepski", 1000, "beerDrinker", false, Gender.MALE);
         employees.add(lazyEmployee);
         HumanResourcesDepartment humanResourcesDepartament=new AniaHumanResourcesDepartment();
         Company company=new Company(employees, humanResourcesDepartament);
-
-        Assert.assertTrue(company.calculateTotalSalaries()==1000);
-//        Assert.assertTrue(employees.size()==1);
+//When
+        double result= company.calculateTotalSalaries();
+//Then
+        Assert.assertTrue(result==1000);
     }
 }
