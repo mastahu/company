@@ -1,35 +1,37 @@
 package it.morfoza.company;
 
-import java.util.ArrayList;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
+@Component
 public class Company {
 
-    private List<Employee> employees;
+    private EmployeeRepository employeeRepository;
     private HumanResourcesDepartment humanResourcesDepartament = new StandardHumanResourcesDepartment();
 
-    public Company(List<Employee> employees, HumanResourcesDepartment humanResourcesDepartament) {
-        this.employees = employees;
+    public Company(EmployeeRepository employeeRepository, HumanResourcesDepartment humanResourcesDepartament) {
+        this.employeeRepository = employeeRepository;
         this.humanResourcesDepartament = humanResourcesDepartament;
     }
 
     public double calculateTotalSalaries() {
         double total = 0;
-        for (Employee employee: employees) {
+        for (Employee employee: employeeRepository.getAllEmployees()) {
             total += employee.getSalary();
         }
         return total;
     }
 
     public void giveRise(int percent) {
-        List<Employee> employeesForRise = humanResourcesDepartament.getEmployeesForRise(employees);
+        List<Employee> employeesForRise = humanResourcesDepartament.getEmployeesForRise(employeeRepository.getAllEmployees());
         for (Employee employee: employeesForRise) {
             employee.giveRise(percent);
         }
     }
 
     public String toString() {
-        return "Company: [employees: " + employees +  "]";
+        return "Company: [employeeRepository: " + employeeRepository.getAllEmployees() +  "]";
     }
 
 }

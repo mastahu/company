@@ -17,7 +17,7 @@ public class AniaCompanyTest {
         List<Employee> employees = asList(employeeWithSalary(1000.0));
 
         HumanResourcesDepartment humanResourcesDepartament = new AniaHumanResourcesDepartment();
-        Company company = new Company(employees, humanResourcesDepartament);
+        Company company = new Company(new TestEmployeeRepository(employees), humanResourcesDepartament);
 //When
         double result = company.calculateTotalSalaries();
 //Then
@@ -49,7 +49,7 @@ public class AniaCompanyTest {
         List<Employee> employees = asList(employeeWithSalary(salary1), employeeWithSalary(salary2));
 
         HumanResourcesDepartment humanResourcesDepartament = new AniaHumanResourcesDepartment();
-        Company company = new Company(employees, humanResourcesDepartament);
+        Company company = new Company(new TestEmployeeRepository(employees), humanResourcesDepartament);
 //When
         double result = company.calculateTotalSalaries();
 //Then
