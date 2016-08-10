@@ -11,7 +11,7 @@ import static spark.Spark.get;
 public class HandlingErrorOldSkulExample {
 
 
-    public static void main(String[] args) {
+    public static void notMain(String[] args) {
         List<Employee> employees = new ArrayList<>();
         double result = calculateTotalSalaries(employees);
         System.out.println(result);
