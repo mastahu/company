@@ -42,6 +42,11 @@ public class EmployeeTest {
 
     }
 
+    @Test
+    public void testEmployeeKS() {
+
+    }
+
 
     @Test
     public void testEmployeePP() {
