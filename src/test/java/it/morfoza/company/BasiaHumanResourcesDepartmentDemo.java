@@ -5,6 +5,7 @@ import java.util.List;
 
 import static it.morfoza.company.DemoUtil.check;
 import static java.util.Arrays.asList;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by ahann on 03/08/2016.
@@ -20,7 +21,7 @@ public class BasiaHumanResourcesDepartmentDemo {
     }
 
     private static void test1(){
-        HumanResourcesDepartment hr = null;
+        HumanResourcesDepartment hr = new BasiaHumanResourcesDepartment();
         basiaShouldGetRise(hr);
         nieBasiaShouldNotGetRise(hr);
     }
@@ -47,7 +48,7 @@ public class BasiaHumanResourcesDepartmentDemo {
 
 
     private static void test2() {
-        HumanResourcesDepartment hr = null;
+        HumanResourcesDepartment hr = new BasiaHumanResourcesDepartment();
 
         Employee basiaEmployee = basiaEmployee();
         Employee nieBasiaEmployee = nieBasiaEmployee();
@@ -55,9 +56,9 @@ public class BasiaHumanResourcesDepartmentDemo {
 
         List<Employee> approvedForRise = hr.getEmployeesForRise(candidatesForRise);
 
-        check(approvedForRise.size() == 1);
-        check(approvedForRise.contains(basiaEmployee));
-        check(!approvedForRise.contains(nieBasiaEmployee));
+        assertTrue(approvedForRise.size() == 1);
+        assertTrue(approvedForRise.contains(basiaEmployee));
+        assertTrue(!approvedForRise.contains(nieBasiaEmployee));
 
 
     }
