@@ -46,7 +46,9 @@ public class EmployeeTest {
     public void testEmployeePP() {
         Employee employee1 = new Employee("Anna", "Pazera", 5000, "junior", true, Gender.FEMALE);
 
+        assertTrue(true);
     }
+
     @Test
     public void testEmployeeJS(){}
 
