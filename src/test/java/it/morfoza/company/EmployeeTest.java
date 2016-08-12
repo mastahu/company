@@ -27,8 +27,7 @@ public class EmployeeTest {
         assertNotEquals(employee3, employee4);
 
     }
-<<<<<<< Updated upstream
-=======
+
     @Test
     public void testEmployeeWS(){
         Employee employee1=new Employee("Szczepan", "Pazera", 5000, "junior", true, Gender.MALE);
@@ -38,10 +37,6 @@ public class EmployeeTest {
 
         assertNotEquals(employee1, employee2);
         assertTrue(!employee1.equals(employee2));
->>>>>>> Stashed changes
-
-    @Test
-    public void testEmployeeWS() {
 
     }
 
