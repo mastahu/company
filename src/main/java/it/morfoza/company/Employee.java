@@ -55,7 +55,9 @@ public class Employee {
     public boolean equals(Object obj) {
         Employee employee1 = this;
         Employee employee2 = (Employee) obj;
-        if (employee1.firstName.equals(employee2.firstName)  ){
+        if (employee1.firstName.equals(employee2.firstName) && employee1.lastName.equals(employee2.lastName)
+                && employee1.salary == employee2.salary && employee1.position.equals(employee2.position)
+                && employee1.hardWorking == employee2.hardWorking && employee1.gender.equals(employee2.gender)) {
             return true;
         } else {
             return false;
