@@ -2,57 +2,52 @@ package it.morfoza.company;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Arrays.asList;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Anna Kacprzak on 2016-08-03.
  */
 public class AniaCompanyTest {
-    @Test
-    public void testCalculateTotalSalaries() {
-//Given
-        List<Employee> employees = asList(employeeWithSalary(1000.0));
-
-        HumanResourcesDepartment humanResourcesDepartament = new AniaHumanResourcesDepartment();
-        Company company = new Company(new TestEmployeeRepository(employees), humanResourcesDepartament);
-//When
-        double result = company.calculateTotalSalaries();
-//Then
-        assertTrue(result == 1000.0);
-
-    }
 
     @Test
-    public void testCalculateTotalSalaries2() {
-        testCalculateTotalSalariesForTwoEmployees(testCase().salary1(200).salary2(300).expectedTotal(500));
-        testCalculateTotalSalariesForTwoEmployees(testCase().salary1(400).salary2(500).expectedTotal(900));
-        testCalculateTotalSalariesForTwoEmployees(testCase().salary1(200).salary2(300).expectedTotal(500));
-        testCalculateTotalSalariesForTwoEmployees(testCase().salary1(200).salary2(300).expectedTotal(500));
-        testCalculateTotalSalariesForTwoEmployees(testCase().salary1(200).salary2(300).expectedTotal(500));
-
-
+    public void shouldCalculateTotalSalaries() {
+        testCalculateTotalSalaries(testCase().salary(1000).expectedTotal(1000));
+        testCalculateTotalSalaries(testCase().salary(200).salary(300).expectedTotal(500));
+        testCalculateTotalSalaries(testCase().salary(200).salary(300).expectedTotal(500));
+        testCalculateTotalSalaries(testCase().salary(400).salary(500).expectedTotal(900));
+        testCalculateTotalSalaries(testCase().salary(200).salary(300).expectedTotal(500));
+        testCalculateTotalSalaries(testCase().salary(200).salary(300).expectedTotal(500));
+        testCalculateTotalSalaries(testCase().salary(200).salary(300).expectedTotal(500));
+        testCalculateTotalSalaries(testCase().salary(200).salary(300).salary(500).expectedTotal(1000));
     }
 
     private TestCase testCase() {
         return new TestCase();
     }
 
-    private void testCalculateTotalSalariesForTwoEmployees(TestCase testCase) {
-        testCalculateTotalSalariesForTwoEmployees(testCase.salary1, testCase.salary2, testCase.expectedTotal);
+    private void testCalculateTotalSalaries(TestCase testCase) {
+        testCalculateTotalSalariesForListOfEmployees(testCase.salaries, testCase.expectedTotal);
     }
 
-    private void testCalculateTotalSalariesForTwoEmployees(double salary1, double salary2, double expectedResult) {
+    private void testCalculateTotalSalariesForListOfEmployees(List<Double> salaries, double expectedResult) {
         //Given
-        List<Employee> employees = asList(employeeWithSalary(salary1), employeeWithSalary(salary2));
+        List<Employee> employees = new ArrayList<>();
+        for (Double salary : salaries) {
+            employees.add(employeeWithSalary(salary));
+        }
 
-        HumanResourcesDepartment humanResourcesDepartament = new AniaHumanResourcesDepartment();
+        HumanResourcesDepartment humanResourcesDepartament = null;
         Company company = new Company(new TestEmployeeRepository(employees), humanResourcesDepartament);
-//When
+
+        //When
         double result = company.calculateTotalSalaries();
-//Then
+
+        //Then
         assertTrue(result == expectedResult);
     }
 
@@ -62,17 +57,11 @@ public class AniaCompanyTest {
 
 
     private static class TestCase {
-        public double salary1;
-        public double salary2;
+        public List<Double> salaries = new ArrayList<>();
         public double expectedTotal;
 
-        public TestCase salary1(double salary1) {
-            this.salary1 = salary1;
-            return this;
-        }
-
-        public TestCase salary2(double salary2) {
-            this.salary2 = salary2;
+        public TestCase salary(double salary) {
+            salaries.add(salary);
             return this;
         }
 
@@ -80,6 +69,21 @@ public class AniaCompanyTest {
             this.expectedTotal = expectedTotal;
             return this;
         }
+    }
+
+    @Test
+    public void shouldGiveRiseToEmployeeThatHRLikes() {
+        // Given
+        List<Employee> employees = new ArrayList<>();
+        Employee employee = employeeWithSalary(1000);
+        employees.add(employee);
+        Company company = new Company(new TestEmployeeRepository(employees), new TestHumanResourcesDepartment());
+
+        // When
+        company.giveRise(10);
+
+        // Then
+        assertThat(employee.getSalary()).isEqualTo(1100);
     }
 
 }
