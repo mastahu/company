@@ -11,24 +11,25 @@ public class EmployeeTest {
     public void testEquals() {
 
         String anna = "";
-        if(true) {
+        if (true) {
             anna += "Anna";
         }
 
         assertEquals(anna, "Anna");
 
-        Employee employee1=new Employee(anna, "Pazera", 5000, "junior", true, Gender.FEMALE);
-        Employee employee2=new Employee("Anna", "Pazera", 5000, "junior", true, Gender.FEMALE);
-        Employee employee3=new Employee("Piotr", "Przybylak", 15000, "senior", false, Gender.MALE);
-        Employee employee4=new Employee("Piotr", "Kowalski", 15000, "senior", false, Gender.MALE);
+        Employee employee1 = new Employee(anna, "Pazera", 5000, "junior", true, Gender.FEMALE);
+        Employee employee2 = new Employee("Anna", "Pazera", 5000, "junior", true, Gender.FEMALE);
+        Employee employee3 = new Employee("Piotr", "Przybylak", 15000, "senior", false, Gender.MALE);
+        Employee employee4 = new Employee("Piotr", "Kowalski", 15000, "senior", false, Gender.MALE);
         assertEquals(employee1, employee2);
         assertTrue(employee1.equals(employee2));
         assertNotEquals(employee1, employee3);
         assertNotEquals(employee3, employee4);
 
     }
+
     @Test
-    public void testEmployeeWS(){
+    public void testEmployeeWS() {
 
     }
 
@@ -41,7 +42,7 @@ public class EmployeeTest {
         }
 
     @Test
-    public void testEmployeeAW(){
+    public void testEmployeeAW() {
 
         Employee employee3= new Employee("Piotr", "Przybylak", 15000, "senior", false, Gender.MALE);
         Employee employee4= new Employee("Piotr", "Przybylak", 15000, "junior", false, Gender.MALE);
@@ -65,9 +66,13 @@ public class EmployeeTest {
 
     @Test
     public void testEmployeeJS() {
-
     }
 
 
-
-}
+    @Test
+    public void testEmployeeAP() {
+        Employee employee2 = new Employee("Anna", "Pazera", 5000, "junior", true, Gender.FEMALE);
+        Employee employee3 = new Employee("Anna", "Przybylak", 5000, "junior", true, Gender.FEMALE);
+        assertNotEquals(employee2,employee3);
+    }
+    }
