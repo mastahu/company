@@ -44,6 +44,7 @@ public class EmployeeTest {
 
     @Test
     public void testEmployeePP() {
+        Employee employee1 = new Employee(anna, "Pazera", 5000, "junior", true, Gender.FEMALE);
 
     }
     @Test
