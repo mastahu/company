@@ -26,6 +26,10 @@ public class EmployeeTest {
         assertNotEquals(employee3, employee4);
 
     }
+    @Test
+    public void testEmployeeWS(){
+
+    }
 
     @Test
     public void testEmployeeMB(){
