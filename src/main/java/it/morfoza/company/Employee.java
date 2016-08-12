@@ -20,7 +20,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee: " + firstName + " " + lastName + ", salary: " + salary +", hardWorking:" + hardWorking;
+        return "Employee: " + firstName + " " + lastName + ", salary: " + salary + ", hardWorking:" + hardWorking;
     }
 
     public void giveRise(int percent) {
@@ -50,4 +50,16 @@ public class Employee {
     public Gender getGender() {
         return gender;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Employee employee1 = this;
+        Employee employee2 = (Employee) obj;
+        if (employee1.firstName.equals(employee2.firstName) ){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
+
