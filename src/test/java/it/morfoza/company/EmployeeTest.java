@@ -50,6 +50,8 @@ public class EmployeeTest {
     }
 
     @Test
-    public void testEmployeeJS(){}
+    public void testEmployeeJS(){
+
+    }
 
 }
