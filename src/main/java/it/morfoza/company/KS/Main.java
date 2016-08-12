@@ -20,8 +20,8 @@ public class Main {
 
     public static double calculateTotalSalaries(List<Employee> employees) {
         double total = 0;
-        for (Employee employee : employees); {
-            total +=employee.getSalary();
+        for (Employee employee : employees) {
+            total += employee.getSalary();
         }
         return total;
 
