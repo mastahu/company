@@ -43,6 +43,10 @@ public class EmployeeTest {
     @Test
     public void testEmployeeAW(){
 
+        Employee employee3= new Employee("Piotr", "Przybylak", 15000, "senior", false, Gender.MALE);
+        Employee employee4= new Employee("Piotr", "Przybylak", 15000, "junior", false, Gender.MALE);
+        assertNotEquals(employee3, employee4);
+
     }
 
     @Test
