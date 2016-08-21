@@ -8,11 +8,18 @@ import java.util.List;
 public class Company {
 
     private EmployeeRepository employeeRepository;
-    private HumanResourcesDepartment humanResourcesDepartament = new StandardHumanResourcesDepartment();
+    private HumanResourcesDepartment humanResourcesDepartament;
+    private Mailman mailman;
 
     public Company(EmployeeRepository employeeRepository, HumanResourcesDepartment humanResourcesDepartament) {
         this.employeeRepository = employeeRepository;
         this.humanResourcesDepartament = humanResourcesDepartament;
+    }
+
+    public Company(EmployeeRepository employeeRepository, HumanResourcesDepartment humanResourcesDepartment, Mailman mailman) {
+        this(employeeRepository, humanResourcesDepartment);
+
+        this.mailman = mailman;
     }
 
     public double calculateTotalSalaries() {
@@ -27,6 +34,7 @@ public class Company {
         List<Employee> employeesForRise = humanResourcesDepartament.getEmployeesForRise(employeeRepository.getAllEmployees());
         for (Employee employee: employeesForRise) {
             employee.giveRise(percent);
+            mailman.deliverLetterAboutPayRise(employee);
         }
     }
 

@@ -1,6 +1,7 @@
 package it.morfoza.company;
 
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,9 @@ import java.util.List;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by Anna Kacprzak on 2016-08-03.
@@ -42,7 +46,11 @@ public class AniaCompanyTest {
         }
 
         HumanResourcesDepartment humanResourcesDepartament = null;
-        Company company = new Company(new TestEmployeeRepository(employees), humanResourcesDepartament);
+
+        EmployeeRepository employeeRepository = mock(EmployeeRepository.class);
+        when(employeeRepository.getAllEmployees()).thenReturn(employees);
+
+        Company company = new Company(employeeRepository, humanResourcesDepartament);
 
         //When
         double result = company.calculateTotalSalaries();
@@ -77,7 +85,11 @@ public class AniaCompanyTest {
         List<Employee> employees = new ArrayList<>();
         Employee employee = employeeWithSalary(1000);
         employees.add(employee);
-        Company company = new Company(new TestEmployeeRepository(employees), new TestHumanResourcesDepartment());
+
+        EmployeeRepository employeeRepository = mock(EmployeeRepository.class);
+        when(employeeRepository.getAllEmployees()).thenReturn(employees);
+        Mailman mailman = mock(Mailman.class);
+        Company company = new Company(employeeRepository, new TestHumanResourcesDepartment(), mailman);
 
         // When
         company.giveRise(10);
@@ -85,6 +97,27 @@ public class AniaCompanyTest {
         // Then
         assertThat(employee.getSalary()).isEqualTo(1100);
     }
+
+        @Test
+        public void shouldNotifyEmployeeWhenSheGetsARise(){
+            // Given
+            List<Employee> employees = new ArrayList<>();
+            Employee employee = employeeWithSalary(1000);
+            employees.add(employee);
+
+            EmployeeRepository employeeRepository = mock(EmployeeRepository.class);
+            when(employeeRepository.getAllEmployees()).thenReturn(employees);
+            Mailman mailman = mock(Mailman.class);
+            Company company = new Company(employeeRepository, new TestHumanResourcesDepartment(), mailman);
+
+            // When
+            company.giveRise(10);
+
+            // Then
+            verify(mailman).deliverLetterAboutPayRise(employee);
+
+
+        }
 
 }
 
