@@ -14,7 +14,7 @@ public class TralalalaHumanResTest {
         Employee lazyEmployee = new Employee("Krzysztof", "Kowalski",3000, "", true, Gender.MALE);
         employees.add(lazyEmployee);
         HumanResourcesDepartment humanResourcesDepartment = null;
-        Company company = new Company(null, humanResourcesDepartment);
+        Company company = new Company(new TestEmployeeRepository(employees), humanResourcesDepartment);
 
         double result = company.calculateTotalSalaries();
 
